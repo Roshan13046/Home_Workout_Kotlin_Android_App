@@ -1,5 +1,6 @@
 package com.example.daily_workout_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,7 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        llStart.setOnClickListener { Toast.makeText(this, "We Will Start the workout Exercise",
-            Toast.LENGTH_SHORT).show() }
+        llStart.setOnClickListener {
+            //Intent is used to switch to new actvity screen
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
