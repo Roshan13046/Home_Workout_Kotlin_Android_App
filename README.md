@@ -9,7 +9,7 @@ The app is under maintainence.
 ⚡️ Made using Kotlin, SQLite and Android Studio\
 ⚡️ Audio and Media Player\
 ⚡️ Text to speech\
-⚡️ Past workout history is visible\
+⚡️ Past workout history is visible
 
 ## Installation & Deployment 📦
 - Fork the Repository.
@@ -22,7 +22,7 @@ The app is under maintainence.
 ✔️ Home Screen\
 ✔️ Exercise Screen\
 ✔️ Body Mass Index Calculator Screen\
-✔️ History Screen\
+✔️ History Screen
 
 ## Project Learnings  📦
 I have learned a bunch of very fundamental features of Android.
