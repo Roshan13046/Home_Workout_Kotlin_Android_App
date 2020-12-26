@@ -25,15 +25,16 @@ The app is under maintainence.
 ✔️ History Screen
 
 ## Project Learnings  📦
-I have learned a bunch of very fundamental features of Android.
-● I learned to setup UI, to get rid of the action bar, to add screen intents, and to customize the toolbar.
-● I learned to implement Custom UI elements for the progress bar to tick counter clock. 
-● Adding the Model and Constants for the exercises and testing it.
-● Learned to include Text to speech feature, adding a media player to play a sound once the exercise is over.
-● Creating a finish activity. Setting up the CustomDialog for the back button.
-● I also learned to add Custom RadioGroups with RadioButtons.
-● Learned the difference between View Gone and View Invisible.
-● Brief learning to use SQLite about using Primary key, to create a table and Datatypes, CRUD operations and working of database tables, adding    SqliteOpenHelper and storing Data permanently in Database, Reading the Database entries and preparing the ListView Layout.
+I have learned a bunch of very fundamental features of Android\
+
+● I learned to setup UI, to get rid of the action bar, to add screen intents, and to customize the toolbar.\
+● I learned to implement Custom UI elements for the progress bar to tick counter clock.\
+● Adding the Model and Constants for the exercises and testing it.\
+● Learned to include Text to speech feature, adding a media player to play a sound once the exercise is over.\
+● Creating a finish activity. Setting up the CustomDialog for the back button.\
+● I also learned to add Custom RadioGroups with RadioButtons.\
+● Learned the difference between View Gone and View Invisible.\
+● Brief learning to use SQLite about using Primary key, to create a table and Datatypes, CRUD operations and working of database tables, adding    SqliteOpenHelper and storing Data permanently in Database, Reading the Database entries and preparing the ListView Layout.\
 ● To prepare recycler view for the bottom to display exercise number, and to create custom recycler view adapter and View Holder.
 
 ## Tools Used 🛠️
