@@ -7,7 +7,7 @@ This is a workout Android application made in KOTLIN.
  
  <p>Once the ready timer ends, the user is directed to the exercise screen where the user gets introduced with the exercise name via text to speech feature and shows to do exercise on the screen through an Image. This screen has an exercise image along with a short description using sound. There are little icons at the bottom of the screen which tells the user about the current exercise and remaining exercises. Each exercise workout has a timer which gets ended the user is directed to the next exercise.</p>
  
- <p>On clicking upon the BMI  button user will be able to calculate his Body Mass Index value. The user has to input his weights in kg and height in cms, then clicking on the submit button will show the BMI value with some extra information. Besides the user can also input the weight and height in US units like a weight in pounds.</p>
+ <p>On clicking upon the BMI  button user will be able to calculate his Body Mass Index value. The user has to input his weights in kg and height in cms, then clicking on the submit button will show the BMI value with some extra information. Besides the user can also input the weight and height in US units like a weight in pounds, height in feets and inches.</p>
  
 <p>On clicking over the history button user can also view his past workout history list in the recycler view. In this section, the user can watch all his previous workouts with the date and time information.The user can also quit his workout in between and resume later.</p>
 
