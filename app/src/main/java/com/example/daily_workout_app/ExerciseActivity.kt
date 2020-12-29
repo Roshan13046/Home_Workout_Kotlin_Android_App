@@ -11,12 +11,20 @@ class ExerciseActivity : AppCompatActivity() {
     //variable for rest timer
     private var restTimer: CountDownTimer?=null
     private var restProgress = 0// progress from 0 to 10
-    private var restTimerDuration: Long = 10
+
+    //TO DO: change the restTimerDuration from 2 to 10 seconds after testing
+    private var restTimerDuration: Long = 2
 
     //variable for exercise timer
     private var exerciseTimer: CountDownTimer?=null
     private var exerciseProgress = 0// progress from 0 to 30
-    private var exerciseTimerDuration : Long = 30
+
+
+    //TO DO: change the exerciseTimerDuration from 4 to 30 seconds after testing
+    private var exerciseTimerDuration : Long = 4
+    private var exerciseList: ArrayList<ExerciseModel>?=null
+    private var currentExercisePosition = -1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +40,8 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         setupRestView()
+
+        exerciseList = Constants.defaultExerciseList()
     }
 
     override fun onDestroy(){
@@ -53,6 +63,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                currentExercisePosition++
                 //exercise view called here
                 setupExerciseView()
             }
@@ -69,15 +80,27 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(this@ExerciseActivity,
-                    "Now, We will Start the next rest screen.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                if(currentExercisePosition < exerciseList?.size!! - 1){
+                    setupRestView()
+                }else{
+                    Toast.makeText(this@ExerciseActivity,
+                        "Hurray! You completed the 10 minutes workout.",
+                        Toast.LENGTH_SHORT).show()
+                }
+
+//                Toast.makeText(this@ExerciseActivity,
+//                    "Now, We will Start the next rest screen.",
+//                    Toast.LENGTH_SHORT
+//                ).show()
             }
         }.start()
     }
 
     private fun setupRestView(){
+
+        llRestView.visibility = View.VISIBLE
+        llExerciseView.visibility = View.GONE
+
         if(restTimer != null){
             restTimer!!.cancel()
             restProgress = 0
@@ -97,6 +120,9 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseProgress = 0
         }
         setExerciseProgressBar()
+
+        ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
+        tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
     }
 
 }
