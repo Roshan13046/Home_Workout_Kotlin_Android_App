@@ -13,7 +13,7 @@ class ExerciseActivity : AppCompatActivity() {
     private var restProgress = 0// progress from 0 to 10
 
     //TO DO: change the restTimerDuration from 2 to 10 seconds after testing
-    private var restTimerDuration: Long = 2
+    private var restTimerDuration: Long = 5
 
     //variable for exercise timer
     private var exerciseTimer: CountDownTimer?=null
@@ -39,9 +39,8 @@ class ExerciseActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        setupRestView()
-
         exerciseList = Constants.defaultExerciseList()
+        setupRestView()
     }
 
     override fun onDestroy(){
@@ -105,6 +104,8 @@ class ExerciseActivity : AppCompatActivity() {
             restTimer!!.cancel()
             restProgress = 0
         }
+
+        tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].getName()
         setRestProgressBar()
     }
 
