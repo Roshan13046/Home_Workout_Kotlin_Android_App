@@ -1,5 +1,7 @@
 package com.example.daily_workout_app
 
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -29,7 +31,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseList: ArrayList<ExerciseModel>?=null
     private var currentExercisePosition = -1
 
+    //text to speech variable
     private var tts: TextToSpeech? = null
+
+    //adding media player
+    private var player: MediaPlayer? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +69,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             exerciseProgress = 0
         }
 
+//destroying tts
         if(tts!=null){
             tts!!.stop()
             tts!!.shutdown()
+        }
+//destroying media player
+        if(player != null){
+            player!!.stop()
         }
 
         super.onDestroy()
@@ -114,6 +126,19 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setupRestView(){
+
+        try{
+            //added the media
+            player = MediaPlayer.create(applicationContext,R.raw.background)
+
+            //to prevent the media looping
+            player!!.isLooping = false
+            player!!.start()
+
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+
 
         llRestView.visibility = View.VISIBLE
         llExerciseView.visibility = View.GONE
