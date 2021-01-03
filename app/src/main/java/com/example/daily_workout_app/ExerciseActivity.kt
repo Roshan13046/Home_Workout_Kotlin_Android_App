@@ -1,5 +1,6 @@
 package com.example.daily_workout_app
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -20,15 +21,15 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var restProgress = 0// progress from 0 to 10
 
     //TO DO: change the restTimerDuration from 2 to 10 seconds after testing
-    private var restTimerDuration: Long = 5
+    private var restTimerDuration: Long = 2
 
     //variable for exercise timer
     private var exerciseTimer: CountDownTimer?=null
     private var exerciseProgress = 0// progress from 0 to 30
 
 
-    //TO DO: change the exerciseTimerDuration from 4 to 30 seconds after testing
-    private var exerciseTimerDuration : Long = 4
+    //TO DO: change the exerciseTimerDuration from 2 to 30 seconds after testing
+    private var exerciseTimerDuration : Long = 2
     private var exerciseList: ArrayList<ExerciseModel>?=null
     private var currentExercisePosition = -1
 
@@ -127,9 +128,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                     setupRestView()
                 }else{
-                    Toast.makeText(this@ExerciseActivity,
-                        "Hurray! You completed the 10 minutes workout.",
-                        Toast.LENGTH_SHORT).show()
+                    finish()
+                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
+
+//                    Toast.makeText(this@ExerciseActivity,
+//                        "Hurray! You completed the 10 minutes workout.",
+//                        Toast.LENGTH_SHORT).show()
                 }
 
 //                Toast.makeText(this@ExerciseActivity,
