@@ -25,8 +25,6 @@
             android:text="@string/str_start"
             android:textColor="#f20574"
             android:textSize="@dimen/start_button_label_textsize" />
-    
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BMI"
-                android:textColor="#CC0D0D"
+                android:textColor="#f20574"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 

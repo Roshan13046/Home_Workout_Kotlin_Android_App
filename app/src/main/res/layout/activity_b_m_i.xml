@@ -13,11 +13,53 @@
         android:layout_height="?android:attr/actionBarSize"
         android:background="#FFFFFF"/>
 
+    <RadioGroup
+        android:id="@+id/rgUnits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_bmi_activity"
+        android:layout_margin="10dp"
+        android:background="@drawable/drawable_radio_group_tab_background"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/rbMetricUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_units_tab_selector"
+            android:checked="true"
+            android:text="METRIC UNITS"
+            android:gravity="center"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:button="@null"
+            />
+
+        <RadioButton
+            android:id="@+id/rbUSUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/drawable_units_tab_selector"
+            android:checked="false"
+            android:text="US UNITS"
+            android:gravity="center"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:button="@null"
+            />
+
+
+    </RadioGroup>
+
     <LinearLayout
         android:id="@+id/llUnitsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_bmi_activity"
+        android:layout_below="@+id/rgUnits"
         android:orientation="vertical"
         android:padding="10dp">
 
