@@ -112,6 +112,7 @@
                 android:inputType="numberDecimal"
                 android:textSize="16sp"
                 />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -122,7 +123,7 @@
             android:baselineAligned="false"
             android:orientation="horizontal"
             android:visibility="gone">
-            
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilUsUnitHeightFeet"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -130,7 +131,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 >
-
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etUsUnitHeightFeet"
@@ -140,6 +140,7 @@
                     android:inputType="number"
                     android:textSize="16sp"
                     />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

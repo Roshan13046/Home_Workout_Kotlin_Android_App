@@ -32,21 +32,46 @@ class BMIActivity : AppCompatActivity() {
 
         //on clicking the calculate BMI button below fun will find the BMI
         btnCalculateUnits.setOnClickListener{
-            if(validateMetricUnits()){
-                //converting height from centimeters to meters
-                val heightValue : Float = etMetricUnitHeight.text.toString().toFloat() / 100
-                //weight is in kg
-                val weightValue : Float = etMetricUnitWeight.text.toString().toFloat()
 
-                val bmiValue = weightValue / (heightValue * heightValue)
-                //calling the fun and passing the bmiValue as a parameter
-                displayBMIResult(bmiValue)
+            //checking current unit system
+            if(currentVisibleView.equals(METRIC_UNITS_VIEW)){
+                if(validateMetricUnits()){
+                    //converting height from centimeters to meters
+                    val heightValue : Float = etMetricUnitHeight.text.toString().toFloat() / 100
+                    //weight is in kg
+                    val weightValue : Float = etMetricUnitWeight.text.toString().toFloat()
 
+                    val bmiValue = weightValue / (heightValue * heightValue)
+                    //calling the fun and passing the bmiValue as a parameter
+                    displayBMIResult(bmiValue)
+
+                }else{
+                    Toast.makeText(this@BMIActivity, "Please enter valid values." , Toast.LENGTH_SHORT).show()
+                }
             }else{
-                Toast.makeText(this@BMIActivity, "Please enter valid values." , Toast.LENGTH_SHORT).show()
+                if(validateUsUnits()){
+                    val usUnitHeightValueFeet: String = etUsUnitHeightFeet.text.toString()//Height in Feet
+                    val usUnitHeightValueInch: String= etUsUnitHeightInch.text.toString()//Height in inch
+                    val usUnitWeightValue: Float = etUsUnitWeight.text.toString().toFloat()//Weight in pound
+
+                    //1 feet equals to 12 inch so converting feet height into inches to calculate the BMI
+                    val USheightValue = usUnitHeightValueInch.toFloat() + (usUnitHeightValueFeet.toFloat() * 12)
+
+                    //formula to calculate BMI Value in American System
+                    val bmiValue  = 703 * (usUnitWeightValue / (USheightValue*USheightValue))
+
+
+                    //displaying the BMI value
+                    displayBMIResult(bmiValue)
+                }else{
+                    Toast.makeText(this@BMIActivity,"Please enter valid values." , Toast.LENGTH_SHORT).show()
+                }
             }
+
+
         }
 
+        //making units system visible
         makeVisibleMetricUnitsView()
         rgUnits.setOnCheckedChangeListener{ group, checkedId ->
             if(checkedId == R.id.rbMetricUnits){
@@ -71,7 +96,7 @@ class BMIActivity : AppCompatActivity() {
         tilUSUnitWeight.visibility = View.GONE
         llUsUnitsHeight.visibility = View.GONE
 
-        llDisplayBMIResult.visibility = View.GONE
+        llDisplayBMIResult.visibility = View.INVISIBLE
     }
 
     //Method to make the US Units Visible
@@ -89,7 +114,7 @@ class BMIActivity : AppCompatActivity() {
         tilUSUnitWeight.visibility = View.VISIBLE
         llUsUnitsHeight.visibility = View.VISIBLE
 
-        llDisplayBMIResult.visibility = View.GONE
+        llDisplayBMIResult.visibility = View.INVISIBLE
     }
 
 
@@ -142,11 +167,23 @@ class BMIActivity : AppCompatActivity() {
         tvBMIDescription.text = bmiDescription
     }
 
+    //validating Metric Units inputs
     private fun validateMetricUnits(): Boolean{
         var isValid = true
 
-        if(etMetricUnitWeight.text.toString().isEmpty() || etMetricUnitHeight.text.toString().isEmpty())
+        if(etMetricUnitWeight.text.toString().isEmpty() || etMetricUnitHeight.text.toString().isEmpty()) {
             isValid = false
+        }
+
+        return isValid
+    }
+
+    //validating US Units inputs
+    private fun validateUsUnits(): Boolean{
+        var isValid = true
+        if(etUsUnitHeightFeet.text.toString().isEmpty() || etUsUnitWeight.text.toString().isEmpty() || etUsUnitHeightInch.text.toString().isEmpty()){
+            isValid = false
+        }
 
         return isValid
     }
