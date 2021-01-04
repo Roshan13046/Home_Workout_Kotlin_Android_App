@@ -10,6 +10,11 @@ import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
 
+    val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
+    val US_UNITS_VIEW = "US_UNIT_VIEW"
+
+    var currentVisibleView: String = METRIC_UNITS_VIEW
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b_m_i)
@@ -41,7 +46,52 @@ class BMIActivity : AppCompatActivity() {
                 Toast.makeText(this@BMIActivity, "Please enter valid values." , Toast.LENGTH_SHORT).show()
             }
         }
+
+        makeVisibleMetricUnitsView()
+        rgUnits.setOnCheckedChangeListener{ group, checkedId ->
+            if(checkedId == R.id.rbMetricUnits){
+                makeVisibleMetricUnitsView()
+            }else{
+                makeVisibleUSUnitsView()
+            }
+        }
     }
+
+    //Method to make the Metric Units Visible
+    private fun makeVisibleMetricUnitsView(){
+        currentVisibleView = METRIC_UNITS_VIEW
+        tilMetricUnitWeight.visibility = View.VISIBLE
+        tilMetricUnitHeight.visibility = View.VISIBLE
+
+        //clearing the text and making the text empty
+        etMetricUnitHeight.text!!.clear()
+        etMetricUnitWeight.text!!.clear()
+
+
+        tilUSUnitWeight.visibility = View.GONE
+        llUsUnitsHeight.visibility = View.GONE
+
+        llDisplayBMIResult.visibility = View.GONE
+    }
+
+    //Method to make the US Units Visible
+    private fun makeVisibleUSUnitsView(){
+        currentVisibleView = US_UNITS_VIEW
+        tilMetricUnitWeight.visibility = View.GONE
+        tilMetricUnitHeight.visibility = View.GONE
+
+        //clearing the text and making the text empty
+        etUsUnitWeight.text!!.clear()
+        etUsUnitHeightFeet.text!!.clear()
+        etUsUnitHeightInch.text!!.clear()
+
+
+        tilUSUnitWeight.visibility = View.VISIBLE
+        llUsUnitsHeight.visibility = View.VISIBLE
+
+        llDisplayBMIResult.visibility = View.GONE
+    }
+
 
     private fun displayBMIResult(bmi: Float){
         val bmiLabel : String
@@ -73,11 +123,15 @@ class BMIActivity : AppCompatActivity() {
             bmiDescription = "OMG! You are in a very dangerous condition! Act now!"
         }
 
+
         //making text contents visible
-        tvYourBMI.visibility = View.VISIBLE
-        tvBMIValue.visibility = View.VISIBLE
-        tvBMIType.visibility = View.VISIBLE
-        tvBMIDescription.visibility = View.VISIBLE
+        llDisplayBMIResult.visibility = View.VISIBLE
+
+
+//        tvYourBMI.visibility = View.VISIBLE
+//        tvBMIValue.visibility = View.VISIBLE
+//        tvBMIType.visibility = View.VISIBLE
+//        tvBMIDescription.visibility = View.VISIBLE
 
         //Rounding off the bmi value and converting bmi value to string
         val bmiValue = BigDecimal(bmi.toDouble()).setScale(2, RoundingMode.HALF_EVEN).toString()
