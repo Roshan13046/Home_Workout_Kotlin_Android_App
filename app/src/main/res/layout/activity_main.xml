@@ -28,37 +28,77 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false"
         android:gravity="center"
-        android:layout_marginBottom="250dp"
-        android:layout_marginLeft="100dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/llBMI"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/item_circular_color_accent_border"
-            android:gravity="center">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llBMI"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/item_circular_color_accent_border"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BMI"
+                    android:textColor="#f20574"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BMI"
-                android:textColor="#f20574"
+                android:text="Calculator"
+                android:textColor="#0463AF"
                 android:textSize="22sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"/>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Calculator"
-            android:textColor="#0463AF"
-            android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginLeft="80dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llHistory"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/item_circular_color_accent_border"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="350dp"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/history_calender"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textColor="#0463AF"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
     </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
