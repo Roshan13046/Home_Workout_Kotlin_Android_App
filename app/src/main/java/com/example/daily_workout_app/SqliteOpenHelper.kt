@@ -33,11 +33,26 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
 
     fun addDate(date: String){
 
-        val values = ContentValues()//Creates an empty set of values using the default initial size
+        val values = ContentValues()  //Creates an empty set of values using the default initial size
         values.put(COLUMN_COMPLETED_DATE, date)
-        val db = this.writableDatabase//getting the writeabledatabase
-        db.insert(TABLE_HISTORY, null,values)//inserting the updated date in column
+        val db = this.writableDatabase //creating a writeabledatabase
+        db.insert(TABLE_HISTORY, null,values)  //inserting the updated date in column
         db.close()//closing the database
+    }
+
+    fun getAllCompletedDatesList() : ArrayList<String>{
+        val list = ArrayList<String>()
+        val db = this.readableDatabase   //creating a readable database
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_HISTORY",null)
+        //moveToNext() method will return false if the cursor is already past the last entry in the result set.
+        while(cursor.moveToNext()){
+            val dateValue = (cursor.getString(cursor.getColumnIndex(COLUMN_COMPLETED_DATE)))
+            list.add(dateValue)
+        }
+
+        cursor.close()//Closes the Cursor, releasing all of its resources and making it completely invalid.
+        return list
+
     }
 }
 
