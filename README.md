@@ -1,5 +1,7 @@
 # Home_Workout_Kotlin_Android_App
 This is a workout Android application made in KOTLIN.
+![Work1](https://user-images.githubusercontent.com/55108788/104132273-34c40100-53a2-11eb-83ad-323845d1324a.jpg)
+![work2](https://user-images.githubusercontent.com/55108788/104132274-37265b00-53a2-11eb-9e20-b31f8b3231b0.jpg)
 ## Brief Description 📋
 <p> This is a 10 min workout android mobile application made in Kotlin and Android studio. It is useful for doing home exercises and workouts. The app has four screens Home screen, Exercise screen, BMI calculator screen, and  History screen.</p>
     
