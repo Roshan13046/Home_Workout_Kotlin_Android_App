@@ -12,17 +12,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //on clicking the Start button
         llStart.setOnClickListener {
             //Intent is used to switch to new actvity screen
             val intent = Intent(this, ExerciseActivity::class.java)
             startActivity(intent)
         }
 
+        //on clicking the BMI calculator button
         llBMI.setOnClickListener{
             val intent = Intent(this,BMIActivity::class.java)
             startActivity(intent)
         }
 
+        //on clicking History button
         llHistory.setOnClickListener{
             val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)

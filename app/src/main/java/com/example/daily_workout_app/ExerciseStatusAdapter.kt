@@ -22,13 +22,13 @@ class ExerciseStatusAdapter(val items:ArrayList<ExerciseModel>,
             R.layout.item_exercise_status,parent,false))
     }
 
-    //Below function displays the content in recyclerView
+    //Below function displays the no of exercise completed, remaining content in recyclerView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: ExerciseModel = items[position]
 
         holder.tvItem.text = model.getId().toString()
 
-        //changing the background color according to below conditions
+        //changing the background color of completed,current,remaining exercises according to below conditions
         if(model.getIsSelected()){
             //holder means for this current individual element
             holder.tvItem.background = ContextCompat.getDrawable(context,R.drawable.item_circular_color_accent_background)

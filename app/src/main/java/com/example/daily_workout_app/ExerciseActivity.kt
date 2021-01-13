@@ -54,6 +54,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         if(actionbar != null){
             actionbar.setDisplayHomeAsUpEnabled(true)
         }
+
+        //on clicking the back button a dialog box will pop up
         toolbar_exercise_activity.setNavigationOnClickListener {
             customDialogForBackButton()
         }
@@ -105,7 +107,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 //setting the current exercise to true
                 exerciseList!![currentExercisePosition].setIsSelected(true)
                 exerciseAdapter!!.notifyDataSetChanged()
-
 
                 //exercise view called here
                 setupExerciseView()

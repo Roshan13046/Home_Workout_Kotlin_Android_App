@@ -23,7 +23,7 @@ class BMIActivity : AppCompatActivity() {
 
         val actionBar = supportActionBar
         if(actionBar != null){
-            actionBar.setDefaultDisplayHomeAsUpEnabled(true)
+            actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.title = "CALCULATE BMI"
         }
         toolbar_bmi_activity.setNavigationOnClickListener {
@@ -122,6 +122,7 @@ class BMIActivity : AppCompatActivity() {
         val bmiLabel : String
         val bmiDescription : String
 
+        //Messages shown to user according to BMI values.
         if(bmi.compareTo(15f) <= 0){
             bmiLabel = "Very severely Underweight"
             bmiDescription = "You need to take more care of your health! Eat more!"
