@@ -25,11 +25,11 @@ class HistoryAdapter(val context : Context , val items: ArrayList<String>): Recy
         holder.tvPosition.text = (position).toString()
         holder.tvItem.text = date
 
-        //adding color in bckground of history table
+        //adding color in background of history table
 
         if(position % 2 == 0){
             holder.llHistoryItem.setBackgroundColor(
-                Color.parseColor("#0689EC")
+                Color.parseColor("#212121")
             )
         }else{
             holder.llHistoryItem.setBackgroundColor(
