@@ -11,9 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HistoryActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
-        <activity android:name=".B_M_I_Calculator" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".BMIActivity"
             android:screenOrientation="portrait"

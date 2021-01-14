@@ -27,18 +27,18 @@ class FinishActivity : AppCompatActivity() {
             finish()
         }
 
-        //calling the addDateToDatabase() to add the date and time in database
+        //on finishing the workout calling the addDateToDatabase() to add the date and time in database
         addDateToDatabase()
 
     }
 
-    //method for adding date to database and formatting the date
+    //method for adding date to database and formatting the date format
     private fun addDateToDatabase(){
         val calendar = Calendar.getInstance()
         val dateTime = calendar.time
-        Log.i("DATE:",""+dateTime)//making a log entry
+        Log.i("DATE:",""+dateTime)//making a log entry for testing
 
-        val sdf = SimpleDateFormat("dd MM yyyy HH:mm:ss", Locale.getDefault())//formatting date and time
+        val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())//formatting date and time
         val date = sdf.format(dateTime)
 
         val dbHandler = SqliteOpenHelper(this,null)
