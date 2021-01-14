@@ -14,7 +14,7 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-        setSupportActionBar(toolbar_bmi_activity)
+        setSupportActionBar(toolbar_history_activity)
 
         val actionbar = supportActionBar
         if(actionbar != null){
