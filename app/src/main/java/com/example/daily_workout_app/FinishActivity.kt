@@ -38,7 +38,8 @@ class FinishActivity : AppCompatActivity() {
         val dateTime = calendar.time
         Log.i("DATE:",""+dateTime)//making a log entry for testing
 
-        val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())//formatting date and time
+//        val sdf = SimpleDateFormat("dd-MMM-yyyy          HH:mm:ss", Locale.getDefault())//formatting date and time
+        val sdf = SimpleDateFormat("dd-MMM-yyyy         HH:mm:ss aaa", Locale.getDefault())//formatting date and time
         val date = sdf.format(dateTime)
 
         val dbHandler = SqliteOpenHelper(this,null)

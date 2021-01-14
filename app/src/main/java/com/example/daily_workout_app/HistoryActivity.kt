@@ -33,6 +33,7 @@ class HistoryActivity : AppCompatActivity() {
         val allCompletedDatesList = dbHandler.getAllCompletedDatesList()
 
         if(allCompletedDatesList.size > 0){
+            //setting the history layout elements visibility
             tvHistory.visibility = View.VISIBLE
             rvHistory.visibility = View.VISIBLE
             tvNoDataAvailable.visibility = View.GONE
@@ -41,6 +42,7 @@ class HistoryActivity : AppCompatActivity() {
             val historyAdapter = HistoryAdapter(this, allCompletedDatesList)
             rvHistory.adapter = historyAdapter
         }else{
+            //setting the history layout elements visibility
             tvHistory.visibility = View.GONE
             rvHistory.visibility = View.GONE
             tvNoDataAvailable.visibility = View.VISIBLE
