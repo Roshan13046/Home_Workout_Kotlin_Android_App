@@ -23,13 +23,6 @@ This is a workout Android application made in KOTLIN.
 ⚡️ Text to speech\
 ⚡️ Past workout history is visible
 
-## Installation & Deployment 📦
-- Fork the Repository.
-- Clone to local machine using git bash or command line.
-- Install into your Android Mobile Phone using Android Studio.
-- Contributions are appreciated.
-- <b>NOTE:</b> Make sure to create a seperate branch for each PR.
-
 ## Screens 📚
 ✔️ Home Screen\
 ✔️ Exercise Screen\
@@ -53,6 +46,14 @@ I have learned a bunch of very fundamental features of Android
 * <b>Android Studio</b> - To create the complete Application.
 * <b>Kotlin and Java</b> - Programming language used to code the app.
 * <b>SQLite</b> - Create the data base for user History.
+
+## Installation & Deployment 📦
+- Fork the Repository.
+- Clone to local machine using git bash or command line.
+- Install into your Android Mobile Phone using Android Studio.
+- Contributions are appreciated.
+- <b>NOTE:</b> Make sure to create a seperate branch for each PR.
+
 
 ## Contributing 💡
 #### Step 1
