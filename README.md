@@ -15,6 +15,10 @@ This is a workout Android application made in KOTLIN.
  
 <p>On clicking over the history button user can also view his past workout history list in the recycler view. In this section, the user can watch all his previous workouts with the date and time information.The user can also quit his workout in between and resume later.</p>
 
+## Tools Used 🛠️
+* <b>Android Studio</b> - To create the complete Application.
+* <b>Kotlin and Java</b> - Programming language used to code the app.
+* <b>SQLite</b> - Create the data base for user History.
 
 ## Features 📋
 ⚡️ Home Workout Android App \
@@ -41,11 +45,6 @@ I have learned a bunch of very fundamental features of Android
 ● Learned the difference between View Gone and View Invisible.\
 ● Brief learning to use SQLite about using Primary key, to create a table and Datatypes, CRUD operations and working of database tables, adding    SqliteOpenHelper and storing Data permanently in Database, Reading the Database entries and preparing the ListView Layout.\
 ● To prepare recycler view for the bottom to display exercise number, and to create custom recycler view adapter and View Holder.
-
-## Tools Used 🛠️
-* <b>Android Studio</b> - To create the complete Application.
-* <b>Kotlin and Java</b> - Programming language used to code the app.
-* <b>SQLite</b> - Create the data base for user History.
 
 ## Installation & Deployment 📦
 - Fork the Repository.
