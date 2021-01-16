@@ -1,5 +1,18 @@
 package com.example.daily_workout_app
 
+/**
+ * ExerciseModel is a class which contains the properties of a exercise
+ * like
+ * id : Exercise id,
+ * name : Name of exercise,
+ * Image :  image of exercise
+ * isCompleted : completed status of the exercise
+ * isSelected : Exercise is selected or not.
+ *
+ * This class has getters and setters for each exercise property.
+ */
+
+
 class ExerciseModel(
     private var id: Int,
     private var name: String,

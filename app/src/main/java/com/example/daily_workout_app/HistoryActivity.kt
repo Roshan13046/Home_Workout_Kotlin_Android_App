@@ -8,6 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_b_m_i.*
 import kotlinx.android.synthetic.main.activity_history.*
 
+/**
+ * HistoryActivity class is for creating a History activity in Histrory screens.
+ *
+ * It creates the UI for the past workout histroy using the recycler View.
+ */
+
+
 class HistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +34,11 @@ class HistoryActivity : AppCompatActivity() {
 
         getAllCompletedDates()
     }
+
+    /**
+     * getAllCompletedDates() is to get the past workout History dates
+     * and changes the visibilty of the UI elements accordingly.
+    */
 
     private fun getAllCompletedDates(){
         val dbHandler = SqliteOpenHelper(this,null)
@@ -48,7 +60,7 @@ class HistoryActivity : AppCompatActivity() {
             tvNoDataAvailable.visibility = View.VISIBLE
         }
 //        for(i in allCompletedDatesList){
-//            Log.i("DateHistoryActivity", "" + i)
+//            Log.i("DateHistoryActivity", "" + i)     //log entry testing
 //        }
 
     }

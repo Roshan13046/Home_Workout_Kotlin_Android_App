@@ -4,9 +4,21 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+/**
+ * SqliteOpenHelper:
+ *
+ * Create a helper object to create, open, and/or manage a database.
+ * The database is not actually created or opened until one of
+ * {@link #getWritableDatabase} or {@link #getReadableDatabase} is called.
+ *
+ */
 
 class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION ){
+
+//    to write a function or any member of the class that can be called
+//    without having the instance of the class then you can write the
+//    same as a member of a companion object inside the class.
 
     companion object{
         private val DATABASE_VERSION = 1//DATABASE version
@@ -16,6 +28,7 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
         private val COLUMN_COMPLETED_DATE = "completed_date"//Column for Completion Date
     }
 
+//    To create a Database Table
     override fun onCreate(db: SQLiteDatabase?) {
         //creating the history table
         val CREATE_EXERCISE_TABLE = ("CREATE TABLE " + TABLE_HISTORY + "(" +
@@ -24,6 +37,7 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
         db?.execSQL(CREATE_EXERCISE_TABLE)
     }
 
+//    To Upgrade the Database with new log entry
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         //dropping the database table and recreating new updated table with
         //updated version
@@ -41,11 +55,13 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
     }
 
     //method to return list of completedDates
+    //Cursors are what contain the result set of a query made against a database.
     fun getAllCompletedDatesList() : ArrayList<String>{
         val list = ArrayList<String>()
         val db = this.readableDatabase   //creating a readable database
         val cursor = db.rawQuery("SELECT * FROM $TABLE_HISTORY",null)
-        //moveToNext() method will return false if the cursor is already past the last entry in the result set.
+        //moveToNext() method will return false if the cursor is already past the last entry in
+        // the result set.
         while(cursor.moveToNext()){
             val dateValue = (cursor.getString(cursor.getColumnIndex(COLUMN_COMPLETED_DATE)))
             list.add(dateValue)
@@ -53,7 +69,6 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
 
         cursor.close()//Closes the Cursor, releasing all of its resources and making it completely invalid.
         return list
-
     }
 }
 

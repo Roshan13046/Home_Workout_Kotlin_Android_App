@@ -8,8 +8,18 @@ import kotlinx.android.synthetic.main.activity_b_m_i.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 
+/**
+ * BMIActivity: This Screen Activity contains the BMI calculator with two options to calculate
+ * the Body mass index of the User with wt and height inputs.
+ *
+ * User will also get the required suggestion according to BMI value,
+ * if the user is overweight, Normal, Underweight, or severely Underweight.
+ */
+
+
 class BMIActivity : AppCompatActivity() {
 
+    //variables for visiilty of metric and US units
     val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
     val US_UNITS_VIEW = "US_UNIT_VIEW"
 
@@ -35,6 +45,7 @@ class BMIActivity : AppCompatActivity() {
 
             //checking current unit system
             if(currentVisibleView.equals(METRIC_UNITS_VIEW)){
+                //for metric Units
                 if(validateMetricUnits()){
                     //converting height from centimeters to meters
                     val heightValue : Float = etMetricUnitHeight.text.toString().toFloat() / 100
@@ -49,6 +60,7 @@ class BMIActivity : AppCompatActivity() {
                     Toast.makeText(this@BMIActivity, "Please enter valid values." , Toast.LENGTH_SHORT).show()
                 }
             }else{
+                //for US units
                 if(validateUsUnits()){
                     val usUnitHeightValueFeet: String = etUsUnitHeightFeet.text.toString()//Height in Feet
                     val usUnitHeightValueInch: String= etUsUnitHeightInch.text.toString()//Height in inch
@@ -57,9 +69,8 @@ class BMIActivity : AppCompatActivity() {
                     //1 feet equals to 12 inch so converting feet height into inches to calculate the BMI
                     val USheightValue = usUnitHeightValueInch.toFloat() + (usUnitHeightValueFeet.toFloat() * 12)
 
-                    //formula to calculate BMI Value in American System
+                    //formula to calculate BMI Value in American System : 703 (wt / (height * height))
                     val bmiValue  = 703 * (usUnitWeightValue / (USheightValue*USheightValue))
-
 
                     //displaying the BMI value
                     displayBMIResult(bmiValue)
@@ -67,8 +78,6 @@ class BMIActivity : AppCompatActivity() {
                     Toast.makeText(this@BMIActivity,"Please enter valid values." , Toast.LENGTH_SHORT).show()
                 }
             }
-
-
         }
 
         //making units system visible
@@ -110,7 +119,7 @@ class BMIActivity : AppCompatActivity() {
         etUsUnitHeightFeet.text!!.clear()
         etUsUnitHeightInch.text!!.clear()
 
-
+        //US units views visible
         tilUSUnitWeight.visibility = View.VISIBLE
         llUsUnitsHeight.visibility = View.VISIBLE
 
@@ -145,19 +154,13 @@ class BMIActivity : AppCompatActivity() {
             bmiLabel = "Obese Class || (Severely obese)"
             bmiDescription = "Oops! Your health is in a very dangerous condition! Act now!"
         }else{
-            bmiLabel = "Obese Class ||| (Very Severely obese)"
+            bmiLabel = "Obese Class ||| (Very Severely Overweght)"
             bmiDescription = "OMG! You are in a very dangerous condition! Act now!"
         }
 
 
         //making text contents visible
         llDisplayBMIResult.visibility = View.VISIBLE
-
-
-//        tvYourBMI.visibility = View.VISIBLE
-//        tvBMIValue.visibility = View.VISIBLE
-//        tvBMIType.visibility = View.VISIBLE
-//        tvBMIDescription.visibility = View.VISIBLE
 
         //Rounding off the bmi value and converting bmi value to string
         val bmiValue = BigDecimal(bmi.toDouble()).setScale(2, RoundingMode.HALF_EVEN).toString()
@@ -175,7 +178,6 @@ class BMIActivity : AppCompatActivity() {
         if(etMetricUnitWeight.text.toString().isEmpty() || etMetricUnitHeight.text.toString().isEmpty()) {
             isValid = false
         }
-
         return isValid
     }
 

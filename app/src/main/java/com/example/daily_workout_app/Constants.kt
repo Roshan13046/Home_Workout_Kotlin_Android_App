@@ -1,5 +1,14 @@
 package com.example.daily_workout_app
 
+/**
+ * Constants class : This class contains the information and properties of
+ * each exercises.
+ *
+ * It has a companion object that is used to return the  list of
+ * Exercises in the form of ArrayList ie ArrayList<ExerciseModel>.
+ *
+ */
+
 class Constants{
     //companion object concept is similar to static variables in java
     companion object{

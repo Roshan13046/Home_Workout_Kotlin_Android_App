@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * MainActivity() controls the start button, History button and BMI Calculators
+ * buttons of the application.
+ *
+ */
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

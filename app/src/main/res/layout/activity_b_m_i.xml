@@ -11,7 +11,8 @@
         android:id="@+id/toolbar_bmi_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#FFFFFF"/>
+        app:titleTextColor="#FFFFFF"
+        android:background="#0535F1"/>
 
     <RadioGroup
         android:id="@+id/rgUnits"
@@ -220,7 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginTop="35dp"
-            android:background="#057EB5"
+            android:background="#160fdd"
             android:text="CALCULATE"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
